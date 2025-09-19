@@ -65,9 +65,11 @@ const LoginScreen = () => {
   };
 
   return (
-    <div
+    <main
       className="flex h-screen w-full bg-cover bg-no-repeat bg-center justify-center"
       style={{ backgroundImage: `url(${assets.bgImage})` }}
+      role="main"
+      aria-label="Login page"
     >
       <div className='flex px-4 py-6 sm:px-8 sm:py-8 w-full max-w-5xl'>
         <div className="flex bg-white rounded-2xl w-full max-w-5xl overflow-hidden shadow-lg p-2">
@@ -78,6 +80,7 @@ const LoginScreen = () => {
               backgroundSize: "cover",
               backgroundPosition: "center"
             }}
+            aria-hidden="true"
           >
             <div className="absolute inset-0 rounded-2xl bg-black/30"></div>
             <div className="relative z-10 flex flex-col h-full justify-between">
@@ -95,13 +98,13 @@ const LoginScreen = () => {
           </div>
 
           <div className="w-full md:w-1/2 rounded-r-2xl flex flex-col items-center justify-center bg-white p-8 sm:p-12">
-            <div className="flex gap-2 mb-6 items-center">
-              <img src={assets.logo} alt="logo" className="w-6 h-6" />
+            <div className="flex gap-2 mb-6 items-center" aria-label="App logo and name">
+              <img src={assets.logo} alt="Cogie logo" className="w-6 h-6" />
               <span className="text-xl font-medium">Cogie</span>
             </div>
 
-            <form className="w-full" onSubmit={handleSubmit} noValidate>
-              <h2 className="text-3xl sm:text-4xl text-black font-playfair font-medium text-center">Welcome Back</h2>
+            <form className="w-full" onSubmit={handleSubmit} noValidate aria-labelledby="login-title">
+              <h2 id="login-title" className="text-3xl sm:text-4xl text-black font-playfair font-medium text-center">Welcome Back</h2>
               <p className="text-sm text-center text-mediumGray mt-2 sm:mt-3">
                 Enter your email and password to access your account
               </p>
@@ -115,11 +118,12 @@ const LoginScreen = () => {
                     className="bg-transparent text-gray-600 placeholder-gray-500/80 outline-none text-sm w-full h-full"
                     value={email}
                     onChange={(e) => handleEmailChange(e.target.value)}
-                    aria-invalid={errors.email ? "true" : "false"}
                     required
+                    aria-invalid={errors.email ? "true" : "false"}
+                    aria-describedby={errors.email ? "email-error" : undefined}
                   />
                 </div>
-                {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
+                {errors.email && <p id="email-error" className="text-red-500 text-xs mt-1">{errors.email}</p>}
               </div>
 
               <div className="flex flex-col w-full mt-4">
@@ -133,6 +137,7 @@ const LoginScreen = () => {
                     value={password}
                     onChange={(e) => handlePasswordChange(e.target.value)}
                     aria-invalid={errors.password ? "true" : "false"}
+                    aria-describedby={errors.password ? "password-error" : undefined}
                     required
                   />
                   <button
@@ -144,24 +149,25 @@ const LoginScreen = () => {
                     {showPassword ? <AiOutlineEyeInvisible className="w-5 h-5" /> : <AiOutlineEye className="w-5 h-5" />}
                   </button>
                 </div>
-                {errors.password && <p className="text-red-500 text-xs mt-1">{errors.password}</p>}
+                {errors.password && <p id="password-error" className="text-red-500 text-xs mt-1">{errors.password}</p>}
               </div>
 
               <div className="w-full flex flex-row items-center justify-between mt-4 text-gray-500/80 gap-2">
                 <div className="flex items-center gap-2">
                   <input className="h-4 w-4" type="checkbox" id="remember" />
-                  <label className="text-black text-sm font-normal" htmlFor="remember">
+                  <label className="text-black text-[13px] font-medium" htmlFor="remember">
                     Remember me
                   </label>
                 </div>
-                <a className="text-black text-sm font-normal hover:underline" href="#">
-                  Forgot Password?
+                <a className="text-black text-[13px] font-medium hover:underline" href="#" aria-label="Forgot your password? Click to reset">
+                  Forgot Password
                 </a>
               </div>
 
               <button
                 type="submit"
                 className="mt-6 w-full h-12 rounded-xl text-white font-medium bg-black hover:bg-gray-900 transition cursor-pointer"
+                aria-label="Sign in with email and password"
               >
                 Sign In
               </button>
@@ -169,14 +175,14 @@ const LoginScreen = () => {
               <button
                 type="button"
                 className="w-full mt-4 bg-white flex items-center justify-center gap-3 h-12 rounded-xl border border-gray-200 hover:bg-gray-100 transition cursor-pointer"
-              >
-                <img src={assets.googleIcon} alt="googleLogo" className="w-5 h-5" />
+                aria-label="Sign in with Google account">
+                <img src={assets.googleIcon} alt="googleLogo" className="w-5 h-5" aria-label="Sign in with Google account" />
                 Sign In with Google
               </button>
 
               <p className="text-gray-600 text-sm mt-6 text-center">
-                Don't have an account?{" "}
-                <a className="text-black hover:underline" href="#">
+                Don&apos;t have an account?{" "}
+                <a className="text-black hover:underline" href="#" aria-label="Sign up for a new account">
                   Sign Up
                 </a>
               </p>
@@ -185,7 +191,7 @@ const LoginScreen = () => {
 
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 
