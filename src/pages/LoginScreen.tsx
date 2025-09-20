@@ -73,9 +73,9 @@ const LoginScreen = () => {
       aria-label="Login page"
     >
       <div className='flex px-4 py-6 sm:px-8 sm:py-8 w-full max-w-5xl'>
-        <div className="flex bg-white rounded-2xl w-full max-w-5xl overflow-hidden shadow-lg p-2">
+        <div className="flex bg-white rounded-3xl w-full max-w-5xl overflow-hidden shadow-lg p-1.5">
           <div
-            className="hidden md:flex w-1/2 flex-col justify-center p-12 text-white relative rounded-2xl"
+            className="hidden md:flex w-1/2 flex-col justify-center p-12 text-white relative rounded-3xl"
             style={{
               backgroundImage: `url(${assets.bgImage})`,
               backgroundSize: "cover",
@@ -83,7 +83,7 @@ const LoginScreen = () => {
             }}
             aria-hidden="true"
           >
-            <div className="absolute inset-0 rounded-2xl bg-black/30"></div>
+            <div className="absolute inset-0 rounded-3xl bg-black/30"></div>
             <div className="relative z-10 flex flex-col h-full justify-between">
               <div className='flex gap-3 items-center'>
                 <p className="uppercase tracking-wider text-[12px] font-medium text-white/90">A Wise Quote</p>
@@ -91,14 +91,14 @@ const LoginScreen = () => {
               </div>
               <div className="mt-auto">
                 <h2 className="text-4xl sm:text-5xl font-medium leading-tight font-playfair">Get<br />Everything<br />You Want</h2>
-                <p className="mt-4 text-sm font-light text-white/80">
+                <p className="mt-4 text-sm font-light text-white/80 leading-5">
                   You can get everything you want if you work hard,<br /> trust the process, and stick to the plan.
                 </p>
               </div>
             </div>
           </div>
 
-          <div className="w-full md:w-1/2 rounded-r-2xl flex flex-col items-center justify-center bg-white p-8 sm:p-12">
+          <div className="w-full md:w-1/2 rounded-r-3xl flex flex-col items-center justify-center bg-white p-8 sm:p-12">
             <div className="flex gap-2 mb-6 items-center" aria-label="App logo and name">
               <img src={assets.logo} alt="Cogie logo" className="w-6 h-6" />
               <span className="text-xl font-medium">Cogie</span>
@@ -156,11 +156,11 @@ const LoginScreen = () => {
               <div className="w-full flex flex-row items-center justify-between mt-4 text-gray-500/80 gap-2">
                 <div className="flex items-center gap-2">
                   <input className="h-4 w-4" type="checkbox" id="remember" />
-                  <label className="text-black text-[13px] font-medium" htmlFor="remember">
+                  <label className="text-black text-sm font-medium" htmlFor="remember">
                     Remember me
                   </label>
                 </div>
-                <a className="text-black text-[13px] font-medium hover:underline" href="#" aria-label="Forgot your password? Click to reset">
+                <a className="text-black text-sm font-medium hover:underline" href="#" aria-label="Forgot your password? Click to reset">
                   Forgot Password
                 </a>
               </div>
