@@ -8,7 +8,7 @@ A responsive login screen built with **React** and **TypeScript**, following the
 
 ## 🌐 Live URL & Repository
 
-- **Live Application**: [https://localhost:5173](https://localhost:5173)
+- **Live Application**: [https://eterna-infotech-frontend-assignment.vercel.app/](https://eterna-infotech-frontend-assignment.vercel.app/)
 
 - **GitHub Repository**: [https://github.com/AishwaryaS9/Eterna-Infotech-Front-End-Assignment.git](https://github.com/AishwaryaS9/Eterna-Infotech-Front-End-Assignment.git)
 
