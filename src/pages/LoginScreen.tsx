@@ -11,7 +11,7 @@ const LoginScreen = () => {
   const [errors, setErrors] = useState({ email: '', password: '' });
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
+  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{6,}$/;
 
   const handleEmailChange = (value: string) => {
     setEmail(value);
@@ -47,7 +47,8 @@ const LoginScreen = () => {
       newErrors.password = 'Password is required';
       valid = false;
     } else if (!passwordRegex.test(password)) {
-      newErrors.password = 'Password must be at least 6 characters and include 1 number';
+      newErrors.password =
+        'Password must be at least 6 characters, include uppercase, lowercase, number, and special character';
       valid = false;
     }
 
